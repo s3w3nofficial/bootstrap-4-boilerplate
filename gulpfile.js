@@ -18,7 +18,9 @@ gulp.task("concatScripts", function() {
         'assets/js/vendor/bootstrap.min.js',
         'assets/js/vendor/jquery-easing/jquery.easing.min.js',
         'assets/js/functions.js',
-        'assets/js/vendor/jquery.slides/jquery.slides.min.js'
+        'assets/js/vendor/jquery.slides/jquery.slides.min.js',
+		'assets/js/vendor/lightbox/lightbox-plus-jquery.min.js,'
+		'assets/js/vendor/lightbox/lightbox.min.js,'
     ])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('assets/js'));
@@ -50,7 +52,7 @@ gulp.task('watchFiles', function() {
     gulp.watch('assets/css/**/*.scss', ['compileSass']);
     gulp.watch('assets/js/*.js', ['concatScripts']);
 })
-  
+
 gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
@@ -90,4 +92,3 @@ gulp.task('serve', ['watchFiles'], function(){
 gulp.task("default", ["clean", 'build'], function() {
     gulp.start('renameSources');
 });
-  
